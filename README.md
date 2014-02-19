@@ -1,3 +1,8 @@
+---
+tags: sql, oop, orm
+language: ruby, sql
+---
+
 School Domain Querying
 ======================
 
