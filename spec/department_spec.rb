@@ -97,7 +97,7 @@ describe Department do
     it "finds by id" do
       comp_sci = Department.new
       comp_sci.name = "Computer Science"
-      comp_sci.save
+      comp_sci.insert
 
       comp_sci_from_db = Department.find_by_id(comp_sci.id)
       expect(comp_sci_from_db.name).to eq("Computer Science")

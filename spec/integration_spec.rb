@@ -25,7 +25,7 @@ describe "Integration" do
       Department.drop_table
     end
 
-    it "has a department" do
+    it "can successfully get and set department" do
       expect(dot_net.department).to be_nil
       dot_net.department = comp_sci
       expect(dot_net.department.name).to eq('Computer Science')

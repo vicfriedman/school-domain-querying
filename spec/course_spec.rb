@@ -102,7 +102,7 @@ describe Course do
       dot_net.name = "Advanced .NET Programming"
       dot_net.department_id = 9999
       
-      dot_net.save
+      dot_net.insert
 
       dot_net_from_db = Course.find_all_by_department_id(9999)[0]
 
