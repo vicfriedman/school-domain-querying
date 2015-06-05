@@ -12,7 +12,7 @@ describe Course do
 
 
   describe 'attributes' do 
-    it 'has an id, name' do
+    it 'has an id, name, and department_id' do
       attributes = {
         :id => 1,
         :name => "Advanced .NET Programming",
