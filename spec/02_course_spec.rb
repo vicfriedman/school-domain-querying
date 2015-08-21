@@ -138,6 +138,7 @@ describe Course do
     it "chooses the right thing on first save" do
       dot_net = Course.new
       dot_net.name = "Advanced .NET Programming"
+      dot_net.department_id = 1
       expect(dot_net).to receive(:insert)
       dot_net.save
     end
