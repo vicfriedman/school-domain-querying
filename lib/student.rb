@@ -1,3 +1,4 @@
+require 'pry'
 class Student
   attr_accessor :id, :name, :tagline, :github, :twitter, :blog_url, :image_url, :biography
 
@@ -36,6 +37,14 @@ class Student
     end
   end
 
+  def self.all
+    sql = <<-SQL
+      SELECT *
+      FROM students;
+    SQL
+    DB[:conn].execute(sql)
+   end
+
   def self.find_by_name(name)
     sql = <<-SQL
       SELECT *
@@ -43,7 +52,6 @@ class Student
       WHERE name = ?
       LIMIT 1
     SQL
-
     DB[:conn].execute(sql,name).map do |row|
       self.new_from_db(row)
     end.first
@@ -56,8 +64,7 @@ class Student
       WHERE id = ?
       LIMIT 1
     SQL
-
-    DB[:conn].execute(sql,name).map do |row|
+    DB[:conn].execute(sql,id).map do |row|
       self.new_from_db(row)
     end.first
   end

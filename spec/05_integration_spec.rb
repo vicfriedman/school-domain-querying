@@ -2,7 +2,13 @@ require_relative 'spec_helper'
 
 describe "Integration" do
   context "Course relation to Department" do
+    before do
+      Course.create_table
+      Department.create_table
+    end
+
     let(:dot_net){
+
       Course.new.tap do |c|
         c.name = "Advanced .NET Programming"
         c.save
@@ -15,10 +21,6 @@ describe "Integration" do
         d.save
       end
     }
-    before do
-      Course.create_table
-      Department.create_table
-    end
 
     after do
       Course.drop_table
